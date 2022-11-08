@@ -42,7 +42,7 @@ function calcula_operacio(){
     }
     //hi ha multiples nombres introduits. Aleshores, vol dir que hi ha
     //tants operadors dins arr_operadors com nombres dins a arr_nombres
-    //i nomes caldra afegir l'ultim nombre, si s'escau (que esta dins window.string_nombre)
+    //i nomes caldra afegir l'ultim nombre, si s'escau (que esta dins window.string_nombre) ....
     
     var calc = window.arr_nombres[0];
     var j = 0;
