@@ -9,7 +9,7 @@ var encesa = 0;
 //encadelar-lo com a string a dins window.string_nre.
 //passo l'id del nombre per obtenri el boto per getElementById
 
-//post: window.string_nombre conte l'string de l'ultim +nre introduit
+//post: window.string_nombre conte l'string de l'ultim +nre introduit.
 function posa_nombre(id_clicat) {
     var boto = document.getElementById(id_clicat);
     var string_nombre = boto.value;
