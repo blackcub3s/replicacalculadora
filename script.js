@@ -114,13 +114,13 @@ function reinicialitza() {
 }
 
 //apagar reinicialitza la funció
-function apaga(){
+function apaga() {
     document.getElementById('pantalleta').innerHTML = "&nbsp";
     console.log("Calculadora apagada i dades reinicialitzades");
     reinicialitza();
 }
 //encendre també es una manera de reinicialitzar
-function encen(){
+function encen() {
     reinicialitza();
     posa_nombre("zero");
     reinicialitza();
