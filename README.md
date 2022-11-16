@@ -7,7 +7,7 @@ as I enjoyed doing it!
 
 # PROGRAMMING DECISIONS
 
-For each button there is a diferent `<div></div>` tag. This makes it possible to give the element atrributes such as id, class and onclick functions.
+For each button of this vitual device, there is a diferent `<div></div>` tag. This makes it possible to give the element tag atributes such as *id*, *class* and *onclick*, to call functions. Mainly I've used id and onclick attributes for making the calculator work with javascript. Class atributes have been reserved to give color properties to the calculator.
 
 ## elemental operators
 
@@ -17,7 +17,7 @@ Then, when the user wants the final result and presses the $ \eq $ sign, the fun
 
 $$ A_i \alpha_i A_{i+1} \cdot \cdot \cdot A_{n-1} \alpha_{n-1} A_n $$
 
-w are operators)which will be evaluated by the built-in `eval()` javascript function to calculate. Then the result is showed. At the same time, this last value gets stored in the `window.string_nombre` variable to keep being of use in case the user wants to introduce another of the elemental operators. You can see the function here:
+This expression then would be evaluated by the built-in `eval()` javascript function to calculate. Then the result is showed. At the same time, this last value gets stored in the `window.string_nombre` variable to keep being of use in case the user wants to introduce another of the elemental operators. For example, multiplying 2 by 3, adding seven and pressing equal would translate to `eval(2*3+7)` and stored as '13' within the `window.string_nombre`variable. You can see the function here:
 
 https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L48-L73
 
