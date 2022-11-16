@@ -15,7 +15,7 @@ The programming logic I used to make the calculator work as the original model, 
 
 Then, when the user wants the final result and presses the $ \eq $ sign, the function `calcula_operacio()`gets to concatenate the numbers in `arr_nombres`and operators in `arr_operators` alternatively to form an expression of $A$ as numbers and $\alpha$ as operators with the following form: 
 
-$$ A_i \alpha_i A_{i+1} \cdot \cdot \cdot A_{n-1} \alpha_{n-1} A_n $$
+$$ A_1 \alpha_1 A_{2} \cdot \cdot \cdot A_i \alpha_i A_{i+1} \cdot \cdot \cdot A_{n-1} \alpha_{n-1} A_n $$
 
 This expression then would be evaluated by the built-in `eval()` javascript function to calculate. Then the result is showed. At the same time, this last value gets stored in the `window.string_nombre` variable to keep being of use in case the user wants to introduce another of the elemental operators. For example, multiplying 2 by 3, adding seven and pressing equal would translate to `eval(2*3+7)` and stored as '13' within the `window.string_nombre`variable. You can see the function here:
 
