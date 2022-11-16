@@ -1,4 +1,5 @@
 //variable global:
+console.log("a lo global");
 var string_nombre= '';
 var string_nombre_operacio = '';
 var esborra_pantalla = 0;
@@ -61,4 +62,22 @@ function calcula_operacio(){
     window.arr_nombres = [];
 }
        
-
+function reinicialitza() {
+    string_nombre = '';
+    string_nombre_operacio = '';
+    esborra_pantalla = 0;
+    arr_nombres = []; //guardo per ordre els nombres introduits
+    arr_operadors = []; //guardo per ordre els operadors
+    encesa = 0;
+}
+function apaga(){
+    document.getElementById('pantalleta').innerHTML = "&nbsp";
+    console.log("Calculadora apagada i dades reinicialitzades");
+    reinicialitza();
+}
+//encendre també es una manera de reinicialitzar
+function encen(){
+    reinicialitza();
+    posa_nombre("zero");
+    reinicialitza();
+}
