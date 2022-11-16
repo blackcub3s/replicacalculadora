@@ -84,7 +84,18 @@ function posa_operador_complex(id_clicat) {
         console.log("cosinus clicat");
         var a = Math.cos(window.string_nombre*Math.PI/180);        
     }
-
+    else if (id_clicat == "tangent") {
+        console.log("tangent clicada");
+        var a = Math.tan(window.string_nombre*Math.PI/180);        
+    }
+    else if (id_clicat == "logaritme") {
+        console.log("logaritme decimal clicat");
+        var a = Math.log10(window.string_nombre);        
+    }     
+    else if (id_clicat == "logaritme_neperia") {
+        console.log("logaritme neperia clicat");
+        var a = Math.log(window.string_nombre);        
+    }     
     document.getElementById('pantalleta').innerHTML = a;
     window.arr_nombres.push(a);
    
