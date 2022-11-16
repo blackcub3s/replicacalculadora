@@ -13,7 +13,9 @@ For each button there is a diferent `<div></div>` tag. This makes it possible to
 
 The programming logic I used to make the calculator work as the original model, in the elemental operators $*, /, +, -$ was to store two arrays of operators. One is `arr_nombres` and the other is `arr_operadors`. But first, whenever we introduce a number it'll be stored in a variable: `window.string_nombre`. Whenever this number is followed by one of the aforementioned simplest operators, the function`posa_operador_basic()` will be invoked and will add the previous number that was stored in `window.string_nombre` to an array `arr_nombres` and the operator on an array `arr_operadors`, both as string variables.
 
-Then, when the user wants the final result and presses the $ \eq $ sign, the function `calcula_operacio()`gets to concatenate the numbers in `arr_nombres`and operators in `arr_operators` alternatively to form an expression of the form  $A_i \alpha_i A_{i+1} \cdot A_{n-1} \alpha_{n-1} A_n$
+Then, when the user wants the final result and presses the $ \eq $ sign, the function `calcula_operacio()`gets to concatenate the numbers in `arr_nombres`and operators in `arr_operators` alternatively to form an expression of the form  
+
+$$ A_i \alpha_i A_{i+1} \cdot A_{n-1} \alpha_{n-1} A_n $
 
  which will be evaluated by the built-in `eval()` javascript function to calculate. Then the result is showed. At the same time, this last value gets stored in the `window.string_nombre` variable to keep being of use in case the user wants to introduce another of the elemental operators. You can see the function here:
 
