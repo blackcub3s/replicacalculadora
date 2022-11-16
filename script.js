@@ -42,33 +42,32 @@ function posa_operador_basic(id_clicat) {
     console.log(window.arr_operadors)
 }
 
-//pren les arr_nombres i arr_operadors i simplement
-//les calcula. Noteu que sempre tindrem tants elements
-//nombres com operadors més 1. Si fossin
-//funcion calcula_operacio()
-function calcula_operacio(){
-    //no hi ha nombre introduit o nomes hi ha un nombre
-    console.log(window.arr_nombres.length)
+//Aquesta funció pren les arr_nombres i arr_operadors, arrays de strings nombre i operadors respectivament, i simplement
+//les concatena i les evalua a operació numèrica. 
+//NOTEU: sempre tindrem tants elements nombres com operadors més 1.
+function calcula_operacio() {
+    //CAS EN QUE: no hi ha nombre introduit o nomes hi ha un nombre
     if (window.arr_nombres.length === 0) {
         return;
     }
-    //hi ha multiples nombres introduits. Aleshores, vol dir que hi ha
-    //tants operadors dins arr_operadors com nombres dins a arr_nombres
-    //i nomes caldra afegir l'ultim nombre, si s'escau (que esta dins window.string_nombre) ....
-    
+    // CAS EN QUE: hi ha multiples nombres introduits. Aleshores, vol dir que hi ha tants operadors dins arr_operadors 
+    //com nombres dins a arr_nombres i nomes caldra afegir l'ultim nombre, si s'escau (que esta dins window.string_nombre).
     var calc = window.arr_nombres[0];
     var j = 0;
     for (var i = 1; i < window.arr_nombres.length; ++i) {
         calc = calc + window.arr_operadors[j]+ window.arr_nombres[i];
         j = j + 1;
     }
-    
-    if (window.string_nombre.length != 0) { //agafo ultim operador i string_nombre (perque no esta buit) ex: 123 x 123   
+
+    //agafo ultim operador i string_nombre (perque no esta buit) ex: 123 x 123  
+    if (window.string_nombre.length != 0) {  
         calc = eval(calc + window.arr_operadors[arr_operadors.length - 1] + window.string_nombre);
     }
-    window.string_nombre = String(calc); //per si seguim fent operacions
+    
+    window.string_nombre = String(calc); //per si seguim fent operacions cal guardar el nombre calculat
     document.getElementById('pantalleta').innerHTML = calc;
     
+    //buidem les arrays amb operadors i nombres, ja que ja les hem utilitzades i han d'estar buides per properes operacions.
     window.arr_operadors = [];
     window.arr_nombres = [];
 }
