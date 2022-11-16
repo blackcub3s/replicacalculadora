@@ -11,13 +11,13 @@ For each button of this vitual device, there is a diferent `<div></div>` tag. Th
 
 ## elemental operators
 
-The programming logic I used to make the calculator work as the original model, in the elemental operators $*, /, +, -$ was to store two arrays of operators. One is `arr_nombres` and the other is `arr_operadors`. But first, whenever we introduce a number it'll be stored in a variable: `window.string_nombre`. Whenever this number is followed by one of the aforementioned simplest operators, the function`posa_operador_basic()` will be invoked and will add the previous number that was stored in `window.string_nombre` to an array `arr_nombres` and the operator on an array `arr_operadors`, both as string variables.
+The programming structure I used to make the calculator work as the original Casio device while using the elemental operators $*, /, +, -$ was to store two information in two different arrays. One is for numbers, `arr_nombres,` and the other is for the elemental operators, `arr_operadors`. But first, whenever we introduce a number it'll be stored in a variable: `window.string_nombre`. Whenever this number is followed by one of the aforementioned simplest operators, the function`posa_operador_basic()` will be invoked and will take the previous number stored in `window.string_nombre` and add it at the end of an array `arr_nombres` and, similarly, will add the operator on an array `arr_operadors`, *both as string variables*.
 
-Then, when the user wants the final result and presses the $ \eq $ sign, the function `calcula_operacio()`gets to concatenate the numbers in `arr_nombres`and operators in `arr_operators` alternatively to form an expression of $A$ as numbers and $\alpha$ as operators with the following form: 
+Soon after that, when the user already wants to get the final result and presses the $ = $ sign, the script does a function call to `calcula_operacio()` which gets to concatenate the numbers in `arr_nombres`and operators in `arr_operators` iteratively and alternatively, to form an expression of $A$ as numbers and $\alpha$ as operators with the following form: 
 
 $$ A_1 \alpha_1 A_{2} \cdot \cdot \cdot A_i \alpha_i A_{i+1} \cdot \cdot \cdot A_{n-1} \alpha_{n-1} A_n $$
 
-This expression then would be evaluated by the built-in `eval()` javascript function to calculate. Then the result is showed. At the same time, this last value gets stored in the `window.string_nombre` variable to keep being of use in case the user wants to introduce another of the elemental operators. For example, multiplying 2 by 3, adding seven and pressing equal would translate to `eval(2*3+7)` and stored as '13' within the `window.string_nombre`variable. You can see the function here:
+This expression then would be evaluated by the built-in `eval()` javascript function to calculate the final result that will be shown on screen. At the same time, this last result gets stored in the `window.string_nombre` variable to keep being of use in case the user wants to introduce another of the elemental operators to keep calculating, such as the original model. For example, multiplying 2 by 3, adding seven and pressing equal would translate to `eval(2*3+7)` and be stored as '13' within the `window.string_nombre`variable[^1]. You can see the function here:
 
 https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L48-L73
 
@@ -26,3 +26,5 @@ https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae50
 When it comes down to use trigonometric or exponencial functions, as those functions work with only one input number instead of two, programming approach needs to be different than with the elemental operators. This was done within the function `posa_operador_complex()`: I calibrated trigonometric functions to get the input in degrees instead of radians:
 
 https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L76-L104
+
+[^1] With the list `arr_nombres` being as `['2', '3']` and `arr_operators` as `['*', '+']`, and the last number and operator get added later.
