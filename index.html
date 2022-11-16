@@ -31,8 +31,8 @@
             <button name="NOSE" value="NO_SE">a b/c</button>
             <button name="NOSE_2" value="NO_SE_2">' ''</button>
             <button name="NOSE_3" value="NOSE_3">hyp</button>
-            <button name="sinus" value="sinus">sin</button>
-            <button name="cosinus" value="cos">cos</button>
+            <button onclick="posa_operador_complex(this.id)" id = "sinus" name="sinus" value="sinus">sin</button>
+            <button onclick="posa_operador_complex(this.id)" id = "cosinus" name="cosinus" value="cos">cos</button>
             <button name="tangent" value="tan">tan</button>
             <button name="mesmenys" value="+-">+/-</button>
             <button name="ENG" value="ENG">ENG</button>
@@ -52,13 +52,13 @@
             <button onclick="posa_nombre(this.id)" id="quatre" value="4" class="boto_gris nre">4</button>
             <button onclick="posa_nombre(this.id)" id="cinc" value="5" class="boto_gris nre">5</button>
             <button onclick="posa_nombre(this.id)" id="sis" value="6" class="boto_gris nre">6</button>
-            <button onclick="posa_operador(this.id)" id="per" value="*" class="boto_gris">X</button>
-            <button onclick="posa_operador(this.id)" id="divisio" value="/" class="boto_gris">/</button>
+            <button onclick="posa_operador_basic(this.id)" id="per" value="*" class="boto_gris">X</button>
+            <button onclick="posa_operador_basic(this.id)" id="divisio" value="/" class="boto_gris">/</button>
             <button onclick="posa_nombre(this.id)" id="u" value="1" class="boto_gris nre">1</button>
             <button onclick="posa_nombre(this.id)" id="dos" value="2" class="boto_gris nre">2</button>
             <button onclick="posa_nombre(this.id)" id="tres" value="3" class="boto_gris nre">3</button>
-            <button onclick="posa_operador(this.id)" id="mes" value="+" class="boto_gris">+</button>
-            <button onclick="posa_operador(this.id)" id="menys" value="-" class="boto_gris">-</button>
+            <button onclick="posa_operador_basic(this.id)" id="mes" value="+" class="boto_gris">+</button>
+            <button onclick="posa_operador_basic(this.id)" id="menys" value="-" class="boto_gris">-</button>
             <button onclick="posa_nombre(this.id)" id="zero" value="0" class="boto_gris nre">0</button>
             <button name="decimal" value="." class="boto_gris nre">.</button>
             <button name="exponencial" value="EXP" class="boto_gris">EXP</button>
