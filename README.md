@@ -15,8 +15,8 @@ The programming logic I used to make the calculator work as the original model, 
 
 https://github.com/blackcub3s/replicacalculadora/blob/05ed99c81c0f44676304558ee4f85ded1bd70468/script.js#L45-L73
 
-# complex operators
+## complex operators
 
 When it comes dowm to use trigonometric or exponencial functions, as those functions work with only one input number instead of two, programming had to be different. This was done within the function `posa_operador_complex()`. I calibrated trigonometric functions to get the input in degrees instead of radians:
 
-https://github.com/blackcub3s/replicacalculadora/blob/05ed99c81c0f44676304558ee4f85ded1bd70468/script.js#L76-L99
+https://github.com/blackcub3s/replicacalculadora/blob/05ed99c81c0f44676304558ee4f85ded1bd70468/script.js#L76-L93

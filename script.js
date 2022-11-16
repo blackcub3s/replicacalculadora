@@ -74,10 +74,6 @@ function calcula_operacio() {
 
 
 function posa_operador_complex(id_clicat) {
-    //les defineixo en una funció a part perquè aqui no necessitem dos nombres per fer l'operació, només un (sinus, cosinus, tangent...)
-    //if (window.arr_nombres.length === 0) {
-    //    return;
-    //}
     var boto = document.getElementById(id_clicat);
     var string_operador = boto.value; //sinus,cosinus,tangent...
     if (id_clicat == "sinus") {
@@ -94,8 +90,6 @@ function posa_operador_complex(id_clicat) {
    
     console.log(window.arr_nombres);
     console.log(window.arr_operadors);
-  
-    
 }
 
 
