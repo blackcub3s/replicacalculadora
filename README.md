@@ -19,4 +19,4 @@ https://github.com/blackcub3s/replicacalculadora/blob/05ed99c81c0f44676304558ee4
 
 When it comes dowm to use trigonometric or exponencial functions, as those functions work with only one input number instead of two, programming had to be different. This was done within the function `posa_operador_complex()`. I calibrated trigonometric functions to get the input in degrees instead of radians:
 
-https://github.com/blackcub3s/replicacalculadora/blob/05ed99c81c0f44676304558ee4f85ded1bd70468/script.js#L76-L93
+https://github.com/blackcub3s/replicacalculadora/blob/66ada91ccef5eca4936217105d3302f6c19ce891/script.js#L76-L93
