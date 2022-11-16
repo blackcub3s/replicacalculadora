@@ -11,12 +11,14 @@ For each button there is a diferent `<div></div>` tag. This makes it possible to
 
 ## elemental operators
 
-The programming logic I used to make the calculator work as the original model, in the simplest operators $*, /, +, -$ was to store two arrays of operators. One is `arr_nombres` and the other is `arr_operadors`. Whenever we introduce a number in the calculator followed by one of the simplest operators, the function `calcula_operacio()` will store them in those arrays, as string variables. When the user wants the result and presses the $ \eq $ sign, then the function gets to concatenate the numbers and operators alternatively and with the expression `eval()` function of javascript just creates a result and stores it in the `window.string_nombre` variable to keep being of use in the next operations. You can see the function here:
+The programming logic I used to make the calculator work as the original model, in the elemental operators $*, /, +, -$ was to store two arrays of operators. One is `arr_nombres` and the other is `arr_operadors`. But first, whenever we introduce a number it'll be stored in a variable: `window.string_nombre`. Whenever this number is followed by one of the aforementioned simplest operators, the function`posa_operador_basic()` will be invoked and will add the previous number that was stored in `window.string_nombre` to an array `arr_nombres` and the operator on an array `arr_operadors`, both as string variables.
 
-https://github.com/blackcub3s/replicacalculadora/blob/05ed99c81c0f44676304558ee4f85ded1bd70468/script.js#L45-L73
+Then, when the user wants the final result and presses the $ \eq $ sign, then the function `calcula_operacio()`gets to concatenate the numbers and operators alternatively and with the built-in `eval()` javascript function the result is created and showed. At the same time, this last value gets stored in the `window.string_nombre` variable to keep being of use in case the user wants to introduce another of the elemental operators. You can see the function here:
+
+https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L48-L73
 
 ## complex operators
 
-When it comes dowm to use trigonometric or exponencial functions, as those functions work with only one input number instead of two, programming had to be different. This was done within the function `posa_operador_complex()`. I calibrated trigonometric functions to get the input in degrees instead of radians:
+When it comes down to use trigonometric or exponencial functions, as those functions work with only one input number instead of two, programming approach needs to be different than with the elemental operators. This was done within the function `posa_operador_complex()`: I calibrated trigonometric functions to get the input in degrees instead of radians:
 
-https://github.com/blackcub3s/replicacalculadora/blob/493fbb8696171e7453ca017df1b0c16fed628b33/script.js#L76-L104
+https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L76-L104
