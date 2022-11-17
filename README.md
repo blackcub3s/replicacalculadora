@@ -39,7 +39,7 @@ When it comes down to use trigonometric or exponencial functions, as those funct
 
 https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L76-L104
 
-
+## Avoiding number overflows
 
 
 [^1]: With the list `arr_nombres` being as `['2', '3']` and `arr_operators` as `['*', '+']`, and the last number and operator get added later.
