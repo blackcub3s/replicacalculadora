@@ -7,19 +7,29 @@ var arr_nombres = []; //guardo per ordre els nombres introduits
 var arr_operadors = []; //guardo per ordre els operadors
 var encesa = 0;
 
+const ESPAI_MAXIM_PANTALLA = 12;
 
-/*
-const sinus_correspondencies = {30 : 0.5, 
-                                60 :sqrt(3)/2,
-                                90 : 1,
-                                }
-*/
+
 //PRE: Una cadena de caràcters
 //POST: True si la seva longitud es inferior a 10.
-function tamanyCorrecte(cadena) {
-    if (cadena.length < 12) {
+function tamanyCorrecteEntrada(cadena) {
+    if (cadena.length < ESPAI_MAXIM_PANTALLA) {
         return true;
     }
+}
+
+//PRE: El resultat d'una operació simple (*,+,-,/)
+//POST: RETORNA TOO LONG si l'operació no es pot representar o redondeig si és decimal
+function controlaTamanyResultats(cadena) {
+    var existeix_decimal = (cadena.indexOf(".") != -1);
+    if (!existeix_decimal) { //no hi ha punt
+        if (cadena.length > ESPAI_MAXIM_PANTALLA) {
+            return "TOO LONG :)";
+        }
+    }
+
+    
+    return cadena;
 }
 
 //PRE: passo com a paràmetrel'id del botó que conté un número.
@@ -27,7 +37,7 @@ function tamanyCorrecte(cadena) {
 function posa_nombre(id_clicat) {
     var boto = document.getElementById(id_clicat); //obtinc el botó.
     var string_nombre = boto.value;                //obtinc el número en variable entera!
-    if (tamanyCorrecte(window.string_nombre)) {
+    if (tamanyCorrecteEntrada(window.string_nombre)) {
         window.string_nombre += string_nombre;         //introdueixo un nombre fet string a l'objecte window, per encadelar-lo com a string a dins window.string_nre.
         document.getElementById('pantalleta').innerHTML = window.string_nombre;
     }
@@ -90,12 +100,21 @@ function calcula_operacio() {
         calc = eval(calc + window.arr_operadors[arr_operadors.length - 1] + window.string_nombre);
     }
     
-    window.string_nombre = String(calc); //per si seguim fent operacions cal guardar el nombre calculat
-    document.getElementById('pantalleta').innerHTML = calc;
+    window.string_nombre = controlaTamanyResultats(String(calc)); //per si seguim fent operacions cal guardar el nombre calculat
+    document.getElementById('pantalleta').innerHTML = window.string_nombre;
     
-    //buidem les arrays amb operadors i nombres, ja que ja les hem utilitzades i han d'estar buides per properes operacions.
-    window.arr_operadors = [];
-    window.arr_nombres = [];
+    //SI EL RESULTAT ES MASSA LLARG SIMPLEMENT MOSTREM ERROR I 
+    //REINICIALITZEM AL CAP D'UNS SEGONS. En cas contrari buidem les arrays 
+    //amb operadors i nombres, ja que ja les hem utilitzades i han d'estar buides per properes operacions
+    //(el nombre en pantalla de l'últim calcul queda dins window.string_nombre).
+    if (window.string_nombre == "TOO LONG :)") {
+        reinicialitza(); 
+    }
+    else {  
+        window.arr_operadors = [];
+        window.arr_nombres = [];
+    }
+
 }
 
 
@@ -138,6 +157,7 @@ function reinicialitza() {
     arr_operadors = []; //guardo per ordre els operadors
     encesa = 0;
 }
+
 
 
 //apagar reinicialitza la funció
