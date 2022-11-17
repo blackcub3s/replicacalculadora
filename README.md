@@ -8,9 +8,10 @@ DISCLAIMER: Keys such as shift, inverse trigonometric, inverse exponential or me
 
 For each button of this virtual device, there is a diferent `<div></div>` tag. This makes it possible to give each element atributes such as *id*, *class* and *onclick*, to call functions. Mainly I've used *id* and *onclick* HTML attributes in order to make the calculator work with javascript as we interact with the buttons. Class atributes have only been used to give color properties to the calculator.
 
-The most important built-in javascript method I used has probably been `document.getElementById();`. In order to have access to HTML elements (the buttons from the calculator) as variables. Then, I used two attributes of these elements: 
-    * one is the attribute `value`, to access the HTML value attribute of those buttons (numbers, decimla point, and operation values in HTML).
-    * The second one is the attribute `innerHTML`, which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the claculator screen. 
+The most important built-in javascript method I used has probably been `document.getElementById();`, in order to have access to HTML elements (the buttons from the calculator) as variables. Then, I used two attributes of these elements: 
+    
+* one is the attribute `value`, to access the HTML value attribute of those buttons (numbers, decimla point, and operation values in HTML).
+* The second one is the attribute `innerHTML`, which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the claculator screen. 
 
 For example, to get the value from within an HTML element -such as a number button or decimal point as is the example here- *into javascript* I would do as follows:
 
