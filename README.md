@@ -11,7 +11,7 @@ For each button of this virtual device, there is a diferent `<div></div>` tag. T
 The most important built-in javascript method I used has probably been `document.getElementById()`, which has served as a bridge to gain access to HTML elements -i.e. calculator buttons- as variables via javascript. Then, I used two attributes of these elements: 
     
 * one is the attribute `value`, to access the HTML value attribute of those buttons (numbers, decimal point, and elemental operations in HTML).
-* The second one is the attribute `innerHTML`, which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the claculator screen. 
+* The second one is the attribute `innerHTML`, which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the calculator screen. 
 
 For example, to get the value from within an HTML element -such as a number button or decimal point as is the example here- *into javascript* I would do as follows:
 
