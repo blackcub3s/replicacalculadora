@@ -6,18 +6,19 @@ DISCLAIMER: Keys such as shift, inverse trigonometric, inverse exponential or me
 
 # PROGRAMMING DECISIONS
 
-For each button of this vitual device, there is a diferent `<div></div>` tag. This makes it possible to give the element tag atributes such as *id*, *class* and *onclick*, to call functions. Mainly I've used id and onclick attributes for making the calculator work with javascript. Class atributes have been reserved to give color properties to the calculator.
+For each button of this virtual device, there is a diferent `<div></div>` tag. This makes it possible to give each element atributes such as *id*, *class* and *onclick*, to call functions. Mainly I've used *id* and *onclick* HTML attributes in order to make the calculator work with javascript as we interact with the buttons. Class atributes have only been used to give color properties to the calculator.
 
-The most important built in javascript method I used was probably `document.getElementById();` in order to get the HTML elements (the buttons from the calculator). Then I used the attribute `value` to access the value attribute of those buttons (which were numbers, and operation values in HTML); and also the attribute `innerHTML` which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the screen `<div></div>`. Also made use of `window.VARIABLE`, as a buffer for the last number added.
+The most important built-in javascript method I used has probably been `document.getElementById();`. In order to have access to HTML elements (the buttons from the calculator) as variables. Then, I used two attributes of these elements: 
+    * one is the attribute `value`, to access the HTML value attribute of those buttons (numbers, decimla point, and operation values in HTML).
+    * The second one is the attribute `innerHTML`, which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the claculator screen. 
 
-Namely in the code, to print the number as we clicked on the calculator buttons:
-
-https://github.com/blackcub3s/replicacalculadora/blob/0c35aaba891be8476a1440a383f43778422e44f4/script.js#L104
-
-And, to get the value of a calculator clicked number or decimal point (here, the latter) in I would do as follows:
+For example, to get the value from within an HTML element -such as a number button or decimal point as is the example here- *into javascript* I would do as follows:
 
 https://github.com/blackcub3s/replicacalculadora/blob/0c35aaba891be8476a1440a383f43778422e44f4/script.js#L50
+ 
+Conversely, to get a number *out* from javascript right onto the screen HTML element, as we clicked on the calculator buttons, I would do[^2]:
 
+https://github.com/blackcub3s/replicacalculadora/blob/0c35aaba891be8476a1440a383f43778422e44f4/script.js#L104
 
 ## elemental operators
 
@@ -37,4 +38,6 @@ When it comes down to use trigonometric or exponencial functions, as those funct
 
 https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L76-L104
 
-[^1] With the list `arr_nombres` being as `['2', '3']` and `arr_operators` as `['*', '+']`, and the last number and operator get added later.
+[^1]: With the list `arr_nombres` being as `['2', '3']` and `arr_operators` as `['*', '+']`, and the last number and operator get added later.
+
+[^2]: I also  made use of `window.VARIABLE`, as a buffer for the last number added.
