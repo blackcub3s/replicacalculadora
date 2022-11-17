@@ -8,15 +8,15 @@ DISCLAIMER: Keys such as shift, inverse trigonometric, inverse exponential or me
 
 For each button of this vitual device, there is a diferent `<div></div>` tag. This makes it possible to give the element tag atributes such as *id*, *class* and *onclick*, to call functions. Mainly I've used id and onclick attributes for making the calculator work with javascript. Class atributes have been reserved to give color properties to the calculator.
 
-The most important built in javascript method I used was probably `document.getElementById();` in order to get the HTML elements (the buttons from the calculator). Then I used the attribute `value` to access the value attribute of those buttons (which were numbers, and operation values in HTML); and also the attribute `innerHTML` which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the screen `<div></div>`.
+The most important built in javascript method I used was probably `document.getElementById();` in order to get the HTML elements (the buttons from the calculator). Then I used the attribute `value` to access the value attribute of those buttons (which were numbers, and operation values in HTML); and also the attribute `innerHTML` which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the screen `<div></div>`. Also made use of `window.VARIABLE`, as a buffer for the last number added.
 
-Namely in the code I did something like:
+Namely in the code, to print the number as we clicked on the calculator buttons:
 
-`var button = document.getElementById().value;`
-`document.getElementById('pantalleta').innerHTML = number;`
+https://github.com/blackcub3s/replicacalculadora/blob/0c35aaba891be8476a1440a383f43778422e44f4/script.js#L104
 
+And, to get the value of a calculator clicked number or decimal point (here, the latter) in I would do as follows:
 
-
+https://github.com/blackcub3s/replicacalculadora/blob/0c35aaba891be8476a1440a383f43778422e44f4/script.js#L50
 
 
 ## elemental operators
