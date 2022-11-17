@@ -8,6 +8,17 @@ DISCLAIMER: Keys such as shift, inverse trigonometric, inverse exponential or me
 
 For each button of this vitual device, there is a diferent `<div></div>` tag. This makes it possible to give the element tag atributes such as *id*, *class* and *onclick*, to call functions. Mainly I've used id and onclick attributes for making the calculator work with javascript. Class atributes have been reserved to give color properties to the calculator.
 
+The most important built in javascript method I used was probably `document.getElementById();` in order to get the HTML elements (the buttons from the calculator). Then I used the attribute `value` to access the value attribute of those buttons (which were numbers, and operation values in HTML); and also the attribute `innerHTML` which would allow a tag such as a `<div><\div>` element to change, for example, to write text on the screen `<div></div>`.
+
+Namely in the code I did something like:
+
+`var button = document.getElementById().value;`
+`document.getElementById('pantalleta').innerHTML = number;`
+
+
+
+
+
 ## elemental operators
 
 The programming structure I used to make the calculator work as the original Casio device while using the elemental operators $*, /, +, -$ was to store two information in two different arrays. One is for numbers, `arr_nombres,` and the other is for the elemental operators, `arr_operadors`. But first, whenever we introduce a number it'll be stored in a variable: `window.string_nombre`. Whenever this number is followed by one of the aforementioned simplest operators, the function`posa_operador_basic()` will be invoked and will take the previous number stored in `window.string_nombre` and add it at the end of an array `arr_nombres` and, similarly, will add the operator on an array `arr_operadors`, *both as string variables*.
