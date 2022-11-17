@@ -7,13 +7,40 @@ var arr_nombres = []; //guardo per ordre els nombres introduits
 var arr_operadors = []; //guardo per ordre els operadors
 var encesa = 0;
 
+
+/*
+const sinus_correspondencies = {30 : 0.5, 
+                                60 :sqrt(3)/2,
+                                90 : 1,
+                                }
+*/
+//PRE: Una cadena de caràcters
+//POST: True si la seva longitud es inferior a 10.
+function tamanyCorrecte(cadena) {
+    if (cadena.length < 12) {
+        return true;
+    }
+}
+
 //PRE: passo com a paràmetrel'id del botó que conté un número.
-//POST: window.string_nombre ara contindrà l'string de l'ultim nre introduit.
+//POST: window.string_nombre ara contindrà l'string de l'ultim nre introduit (0,1,2,..,9).
 function posa_nombre(id_clicat) {
     var boto = document.getElementById(id_clicat); //obtinc el botó.
     var string_nombre = boto.value;                //obtinc el número en variable entera!
-    window.string_nombre += string_nombre;         //introdueixo un nombre fet string a l'objecte window, per encadelar-lo com a string a dins window.string_nre.
-    document.getElementById('pantalleta').innerHTML = window.string_nombre; 
+    if (tamanyCorrecte(window.string_nombre)) {
+        window.string_nombre += string_nombre;         //introdueixo un nombre fet string a l'objecte window, per encadelar-lo com a string a dins window.string_nre.
+        document.getElementById('pantalleta').innerHTML = window.string_nombre;
+    }
+    console.log(window.string_nombre);
+     
+}
+//PRE: parametre id
+//POST: afegeix el punt a window.string_nombre SI I NOMES SI no hi és dins.
+function posa_decimal(id_clicat) {
+    var punt = document.getElementById(id_clicat).value; //es el punt, un string
+    if (window.string_nombre.indexOf(punt) == "-1") {
+        window.string_nombre += punt;
+    } 
 }
 
 //FUNCIONAMENT: afegeix els operadors i els nombres a les seves respectives arrays ("arr_nombres" i "arr_operadors")
@@ -27,8 +54,7 @@ function posa_operador_basic(id_clicat) {
         
         //////////////////////////////
         //
-        //  SECCIO ESBORRABLE, NO DEIXEN DE FUNCIONAR BÉ ELS OPERADORS SENZILLS. NOMÉS DEIXEN DE FUNCIONAR ELS OPERADORS COMPLEXOS
-        //
+        // SECCIO ESBORRABLE, NO DEIXEN DE FUNCIONAR BÉ ELS OPERADORS SENZILLS. NOMÉS DEIXEN DE FUNCIONAR ELS OPERADORS COMPLEXOS
         //enretiro l'ultim element de window.arr_nombres, sota el suposit que hi hagi un nombre mes
         // que no pas operador (cas en que previament he demanat una operacio complexa rollo sinus, cosinus
         // codi spaggetti... aixo es una modificació que prové del malfuncionament de la funcio posa_operador_complex
@@ -39,7 +65,7 @@ function posa_operador_basic(id_clicat) {
         window.string_nombre = ''; //buido string nombre, per evitar introduir operadors quan no hi ha nombres a l'entrada ultima
     }
     console.log(window.arr_nombres);
-    console.log(window.arr_operadors)
+    console.log(window.arr_operadors);
 }
 
 //Aquesta funció pren les arr_nombres i arr_operadors, arrays de strings nombre i operadors respectivament, i simplement
@@ -113,6 +139,7 @@ function reinicialitza() {
     encesa = 0;
 }
 
+
 //apagar reinicialitza la funció
 function apaga() {
     document.getElementById('pantalleta').innerHTML = "&nbsp";
@@ -126,3 +153,4 @@ function encen() {
     reinicialitza();
     console.log("Calculadora encesa i dades reinicialitzades (abans i despres d'apretar el boto)");
 }
+
