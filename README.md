@@ -43,6 +43,12 @@ https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae50
 
 I took care of not displaying more than 12 characters on screen when introducing numbers. Whenever the non floating point part of a computation (the whole part) cannot be represented, a message appears to inform the user: "TOO LONG :)", and the arrays get resetted.
 
+
+## changing the sign of a number
+This is something that gets implemented in this function (I decided to work all the time with string objects instead of convertim them to integers or floating point numbers):
+
+https://github.com/blackcub3s/replicacalculadora/blob/74160f58510d70ca7539613fd830490e952e04b7/script.js#L12-L26
+
 [^1]: With the list `arr_nombres` being as `['2', '3']` and `arr_operators` as `['*', '+']`, and the last number and operator get added later.
 
 [^2]: I also  made use of `window.VARIABLE`, as a buffer for the last number added.
