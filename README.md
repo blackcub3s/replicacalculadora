@@ -48,7 +48,7 @@ I took care of not displaying more than 12 characters on screen when introducing
 This is the simplest case. It was solved simply by doing:
 https://github.com/blackcub3s/replicacalculadora/blob/5ae582117e0b4449d6d5184c3ee92a47f97c24de/script.js#L28-l34
 
-## *CASE B*: A number is a result of a computation
+### *CASE B*: A number is a result of a computation
 
 The second case, however, is more complex. When the non floating point part of a computation (the whole part or integer part) cannot be represented given the maximun `ESPAI_MAXIM_PANTALLA`, a message need to appear to inform the user: "TOO LONG :)" and the arrays get resetted. On the other hand, if the length of the whole part (in catalan, `longPartEntera`) of the number[^3] is not bigger than 12 characters, then the floating point part needs to be rounded, which is another case scenario. For example, under this circumstance if we have a number like `-123.45` the variable would contain the length 4, as the analyzed substring is this one `-123.` and is obtained doing `cadena.slice(0, cadena.indexOf("."))`. This is taken care of by the following function:
 
