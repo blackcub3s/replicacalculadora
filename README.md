@@ -1,8 +1,8 @@
 # CALCULATOR
 
-In this project I used HTML, CSS and javascript to make a replica of the popular *Casio fx-82SX* calculator. It has the design and the behaviour as close as to the original for the simplest functions: $*, /, +, -$ and for trigonometric and exponential functions. Buttons on *CA* and *OFF* work properly, reseting the data. And you can use $+/-$ sign to get to change number sign.
+In this project I used HTML, CSS and javascript to make a replica of the popular *Casio fx-82SX* calculator. It has the design and the behaviour as close as to the original for the simplest functions: $*, /, +, -$ and for trigonometric and exponential functions. Buttons on *CA* and *OFF* work properly, reseting the data. And you can use $+/-$ sign to get to change number sign. Screen overflows have been programmed to be restricted, so the calculator prevents the user to compute something that has more than 12 characters.
 
-DISCLAIMER: Keys such as shift, inverse trigonometric, inverse exponential or memory keys have not been programmed. Screen overflows are not uncommon for very long numbers and are yet to be implemented. Consider this as what it is: a proof of concept and an aproximation, not a perfect replica! Hope you enjoy testing it as much as I enjoyed doing it!
+DISCLAIMER: Keys such as shift, inverse trigonometric, inverse exponential, sqrt, or memory keys have not been programmed. Screen overflows are not uncommon for very long numbers and are yet to be implemented. Consider this as what it is: a proof of concept and an aproximation, not a perfect replica! Hope you enjoy testing it as much as I enjoyed doing it!
 
 # PROGRAMMING DECISIONS
 
@@ -31,37 +31,36 @@ $$ A_1 \alpha_1 A_{2} \cdot \cdot \cdot A_i \alpha_i A_{i+1} \cdot \cdot \cdot A
 
 Then, this expression would be evaluated by the built-in `eval()` javascript function to calculate the final result that will be shown on screen. At the same time, this last result gets stored in the `window.string_nombre` variable to keep being of use in case the user wants to introduce another of the elemental operators to keep calculating, such as it happens in the original Casio model. For example, multiplying 2 by 3, adding seven and pressing equal would translate to `eval(2*3+7)` and be stored as '13' within the `window.string_nombre`variable[^1]. You can see the function here:
 
-https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L48-L73
+https://github.com/blackcub3s/replicacalculadora/blob/5ae582117e0b4449d6d5184c3ee92a47f97c24de/script.js#L111-L148
 
 ## Complex operators
 
 When it comes down to use trigonometric or exponencial functions, as those functions work with only one input number instead of two, programming approach needs to be different than with the elemental operators. This was done within the function `posa_operador_complex()`: I calibrated trigonometric functions to get the input in degrees instead of radians:
 
-https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L76-L104
+https://github.com/blackcub3s/replicacalculadora/blob/5ae582117e0b4449d6d5184c3ee92a47f97c24de/script.js#L150-L179
 
 ## Avoiding number screen overflows
 
 I took care of not displaying more than 12 characters on screen when introducing numbers by defining the constant (`const ESPAI_MAXIM_PANTALLA = 12`). This needs to be carefuly considered, as there are two cases:
 
-### CASE A: New number gets introduced by the user
+### *CASE A*: New number gets introduced by the user
 
 This is the simplest case. It was solved simply by doing:
-https://github.com/blackcub3s/replicacalculadora/blob/74160f58510d70ca7539613fd830490e952e04b7/script.js#L29-L35
+https://github.com/blackcub3s/replicacalculadora/blob/5ae582117e0b4449d6d5184c3ee92a47f97c24de/script.js#L28-l34
 
-## CASE B: A number is a result of a computation
+## *CASE B*: A number is a result of a computation
 
 The second case, however, is more complex. When the non floating point part of a computation (the whole part or integer part) cannot be represented given the maximun `ESPAI_MAXIM_PANTALLA`, a message need to appear to inform the user: "TOO LONG :)" and the arrays get resetted. On the other hand, if the length of the whole part (in catalan, `longPartEntera`) of the number[^3] is not bigger than 12 characters, then the floating point part needs to be rounded, which is another case scenario. For example, under this circumstance if we have a number like `-123.45` the variable would contain the length 4, as the analyzed substring is this one `-123.` and is obtained doing `cadena.slice(0, cadena.indexOf("."))`. This is taken care of by the following function:
 
-https://github.com/blackcub3s/replicacalculadora/blob/74160f58510d70ca7539613fd830490e952e04b7/script.js#L39
-
+https://github.com/blackcub3s/replicacalculadora/blob/5ae582117e0b4449d6d5184c3ee92a47f97c24de/script.js#L36-L63
 
 
 
 
 ## Changing the sign of a number
-This is something that gets implemented in this function (I decided to work all the time with string objects instead of convertim them to integers or floating point numbers):
+This is something that gets implemented in this function (I decided to work all the time with string objects instead of convert them to integers or floating point numbers; only doing so when there is no other option):
 
-https://github.com/blackcub3s/replicacalculadora/blob/74160f58510d70ca7539613fd830490e952e04b7/script.js#L12-L26
+https://github.com/blackcub3s/replicacalculadora/blob/5ae582117e0b4449d6d5184c3ee92a47f97c24de/script.js#L12-L26
 
 [^1]: With the list `arr_nombres` being as `['2', '3']` and `arr_operators` as `['*', '+']`, and the last number and operator get added later.
 
