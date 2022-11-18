@@ -1,6 +1,6 @@
 # CALCULATOR
 
-In this project I used HTML, CSS and javascript to make a replica of the popular *Casio fx-82SX* calculator. It has the design and the behaviour as close as to the original for the simplest functions: $*, /, +, -$ and for trigonometric and exponential functions. Buttons on *CA* and *OFF* work properly, reseting the data. 
+In this project I used HTML, CSS and javascript to make a replica of the popular *Casio fx-82SX* calculator. It has the design and the behaviour as close as to the original for the simplest functions: $*, /, +, -$ and for trigonometric and exponential functions. Buttons on *CA* and *OFF* work properly, reseting the data. And you can use $+/-$ sign to get to change number sign.
 
 DISCLAIMER: Keys such as shift, inverse trigonometric, inverse exponential or memory keys have not been programmed. Screen overflows are not uncommon for very long numbers and are yet to be implemented. Consider this as what it is: a proof of concept and an aproximation, not a perfect replica! Hope you enjoy testing it as much as I enjoyed doing it!
 

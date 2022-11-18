@@ -9,6 +9,24 @@ var encesa = 0;
 
 const ESPAI_MAXIM_PANTALLA = 12;
 
+//PRE: window.string_nombre té carregat un nombre com a cadena (pot ser positiu, negatiu o zero)
+//POST: el nombre com a cadena, pero amb el signe canviat (a excepció del zero, que no té signe).
+function canviaSigne() {
+    let esPositiu = window.string_nombre.indexOf("-") == -1 && window.string_nombre != 0;
+    let esNegatiu = window.string_nombre.indexOf("-") != -1;
+    if (esPositiu) {
+        window.string_nombre = "-"+window.string_nombre; //afegeixo el signe negatiu a l'string
+    }
+    else if (esNegatiu) {
+        window.string_nombre = window.string_nombre.slice(1); //trec el signe negatiu de l'string
+    }
+    
+    if (window.string_nombre.length > 0) {//cal excloure el cas de windows.tring_nombre.length == 0 o peta quan reinicialitzes
+        document.getElementById('pantalleta').innerHTML = window.string_nombre;
+    }
+    
+}
+
 
 //PRE: Una cadena de caràcters
 //POST: True si la seva longitud es inferior a 10.
@@ -141,6 +159,7 @@ function posa_operador_complex(id_clicat) {
         console.log("logaritme neperia clicat");
         var a = Math.log(window.string_nombre);        
     }     
+    a = String(a);
     document.getElementById('pantalleta').innerHTML = a;
     window.arr_nombres.push(a);
    
