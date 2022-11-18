@@ -1,9 +1,10 @@
 # CALCULATOR
-See the live project and interact with it here: [https://blackcub3s.github.io/replicacalculadora/](https://blackcub3s.github.io/replicacalculadora/).
 
 In this project I used HTML, CSS and javascript to make a replica of the popular *Casio fx-82SX* calculator. It has the design and the behaviour as close as to the original for the simplest functions: $*, /, +, -$ and for trigonometric and exponential functions. Buttons on *CA* and *OFF* work properly, reseting the data. And you can use $+/-$ sign to get to change number sign. Screen overflows have been programmed to be restricted, so the calculator prevents the user to compute something that has more than 12 characters.
 
 DISCLAIMER: Keys such as shift, inverse trigonometric, inverse exponential, sqrt, or memory keys have not been programmed.
+
+**See the live project and interact with it here**: [**https://blackcub3s.github.io/replicacalculadora/**](https://blackcub3s.github.io/replicacalculadora/).
 
 # PROGRAMMING DECISIONS
 
