@@ -39,8 +39,9 @@ When it comes down to use trigonometric or exponencial functions, as those funct
 
 https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae5082006a16810abe/script.js#L76-L104
 
-## Avoiding number overflows
+## Avoiding number screen overflows
 
+I took care of not displaying more than 12 characters on screen when introducing numbers. Whenever the non floating point part of a computation (the whole part) cannot be represented, a message appears to inform the user: "TOO LONG :)", and the arrays get resetted.
 
 [^1]: With the list `arr_nombres` being as `['2', '3']` and `arr_operators` as `['*', '+']`, and the last number and operator get added later.
 
