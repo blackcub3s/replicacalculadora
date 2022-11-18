@@ -20,7 +20,7 @@ function canviaSigne() {
     else if (esNegatiu) {
         window.string_nombre = window.string_nombre.slice(1); //trec el signe negatiu de l'string
     }
-    if (window.string_nombre.length > 0) {//cal excloure el cas de windows.tring_nombre.length == 0 o peta quan reinicialitzes
+    if (window.string_nombre.length > 0) {//Aquest if es per controlar una excepció: cal excloure el cas de windows.tring_nombre.length == 0 o la pantalla desapareix quan reinicialitzes
         document.getElementById('pantalleta').innerHTML = window.string_nombre;
     }
 }
