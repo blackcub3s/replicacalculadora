@@ -60,7 +60,6 @@ function controlaTamanyResultats(cadena) {
             return partEntera; //NOMES EN AQUEST CAS PARTICULAR... NO REDONDEJO, MILLORAR!      
         }
     }
-    
 }
 
 //PRE: passo com a paràmetrel'id del botó que conté un número.
