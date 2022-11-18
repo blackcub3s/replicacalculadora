@@ -25,7 +25,6 @@ function canviaSigne() {
     }
 }
 
-
 //PRE: Una cadena de caràcters
 //POST: True si la seva longitud es inferior a 10.
 function tamanyCorrecteEntrada(cadena) {
@@ -38,14 +37,30 @@ function tamanyCorrecteEntrada(cadena) {
 //POST: RETORNA TOO LONG si l'operació no es pot representar o redondeig si és decimal
 function controlaTamanyResultats(cadena) {
     var existeix_decimal = (cadena.indexOf(".") != -1);
-    if (!existeix_decimal) { //no hi ha punt
+     //no hi ha punt decimal a la cadena:
+    if (!existeix_decimal) { 
         if (cadena.length > ESPAI_MAXIM_PANTALLA) {
             return "TOO LONG :)";
         }
+        return cadena;
+    }//existeixPuntDecimal a la cadena:
+    else { 
+        var partEntera = cadena.slice(0, cadena.indexOf("."));
+        var longPartEntera = partEntera.length; //SENSE EL PUNT
+        var partDecimal = cadena.slice(cadena.indexOf(".") + 1, cadena.length);
+        var longPartDecimal = partDecimal.length;
+        if (longPartEntera > ESPAI_MAXIM_PANTALLA) {
+            return "TOO LONG :)";
+        }
+        else if (longPartEntera < ESPAI_MAXIM_PANTALLA) { //+2 per tenir en compte l'espai del punt i del primer o posteriors decimals representables
+            var decimalsAdmesos = ESPAI_MAXIM_PANTALLA - longPartEntera - 1;
+            return String(Math.round(cadena*Math.pow(10,decimalsAdmesos))/Math.pow(10,decimalsAdmesos)); //REDONDEJA :D Idea de multiplicar per unitat segida de zero, redondejar i dividir per unitat seguida de zero prové de https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
+        }
+        else { //CAS EN QUE longPartEntera == ESPAI_MAXIM_PANTALLA
+            return partEntera; //NOMES EN AQUEST CAS PARTICULAR... NO REDONDEJO, MILLORAR!      
+        }
     }
-
     
-    return cadena;
 }
 
 //PRE: passo com a paràmetrel'id del botó que conté un número.
@@ -58,8 +73,8 @@ function posa_nombre(id_clicat) {
         document.getElementById('pantalleta').innerHTML = window.string_nombre;
     }
     console.log(window.string_nombre);
-     
 }
+
 //PRE: parametre id
 //POST: afegeix el punt a window.string_nombre SI I NOMES SI no hi és dins.
 function posa_decimal(id_clicat) {
@@ -116,8 +131,8 @@ function calcula_operacio() {
         calc = eval(calc + window.arr_operadors[arr_operadors.length - 1] + window.string_nombre);
     }
     
-    window.string_nombre = controlaTamanyResultats(String(calc)); //per si seguim fent operacions cal guardar el nombre calculat
-    document.getElementById('pantalleta').innerHTML = window.string_nombre;
+    window.string_nombre = String(calc); //per si seguim fent operacions cal guardar el nombre calculat
+    document.getElementById('pantalleta').innerHTML = controlaTamanyResultats(window.string_nombre);
     
     //SI EL RESULTAT ES MASSA LLARG SIMPLEMENT MOSTREM ERROR I 
     //REINICIALITZEM AL CAP D'UNS SEGONS. En cas contrari buidem les arrays 
@@ -132,7 +147,6 @@ function calcula_operacio() {
     }
 
 }
-
 
 function posa_operador_complex(id_clicat) {
     var boto = document.getElementById(id_clicat);
@@ -158,9 +172,9 @@ function posa_operador_complex(id_clicat) {
         var a = Math.log(window.string_nombre);        
     }     
     a = String(a);
-    document.getElementById('pantalleta').innerHTML = a;
     window.arr_nombres.push(a);
-   
+    document.getElementById('pantalleta').innerHTML = controlaTamanyResultats(a);
+    
     console.log(window.arr_nombres);
     console.log(window.arr_operadors);
 }
@@ -174,8 +188,6 @@ function reinicialitza() {
     arr_operadors = []; //guardo per ordre els operadors
     encesa = 0;
 }
-
-
 
 //apagar reinicialitza la funció
 function apaga() {

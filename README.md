@@ -41,10 +41,24 @@ https://github.com/blackcub3s/replicacalculadora/blob/2efe2254321d00a8228a87ae50
 
 ## Avoiding number screen overflows
 
-I took care of not displaying more than 12 characters on screen when introducing numbers. Whenever the non floating point part of a computation (the whole part) cannot be represented, a message appears to inform the user: "TOO LONG :)", and the arrays get resetted.
+I took care of not displaying more than 12 characters on screen when introducing numbers by defining the constant (`const ESPAI_MAXIM_PANTALLA = 12`). This needs to be carefuly considered, as there are two cases:
+
+### CASE A: New number gets introduced by the user
+
+This is the simplest case. It was solved simply by doing:
+https://github.com/blackcub3s/replicacalculadora/blob/74160f58510d70ca7539613fd830490e952e04b7/script.js#L29-L35
+
+## CASE B: A number is a result of a computation
+
+The second case, however, is more complex. When the non floating point part of a computation (the whole part or integer part) cannot be represented given the maximun `ESPAI_MAXIM_PANTALLA`, a message need to appear to inform the user: "TOO LONG :)" and the arrays get resetted. On the other hand, if the length of the whole part (in catalan, `longPartEntera`) of the number[^3] is not bigger than 12 characters, then the floating point part needs to be rounded, which is another case scenario. For example, under this circumstance if we have a number like `-123.45` the variable would contain the length 4, as the analyzed substring is this one `-123.` and is obtained doing `cadena.slice(0, cadena.indexOf("."))`. This is taken care of by the following function:
+
+https://github.com/blackcub3s/replicacalculadora/blob/74160f58510d70ca7539613fd830490e952e04b7/script.js#L39
 
 
-## changing the sign of a number
+
+
+
+## Changing the sign of a number
 This is something that gets implemented in this function (I decided to work all the time with string objects instead of convertim them to integers or floating point numbers):
 
 https://github.com/blackcub3s/replicacalculadora/blob/74160f58510d70ca7539613fd830490e952e04b7/script.js#L12-L26
@@ -52,3 +66,5 @@ https://github.com/blackcub3s/replicacalculadora/blob/74160f58510d70ca7539613fd8
 [^1]: With the list `arr_nombres` being as `['2', '3']` and `arr_operators` as `['*', '+']`, and the last number and operator get added later.
 
 [^2]: I also  made use of `window.VARIABLE`, as a buffer for the last number added.
+
+[^3]: The sign information and decimal point, when they exist, compute within the variable `longPartEntera`.
