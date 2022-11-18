@@ -9,8 +9,8 @@ var encesa = 0;
 
 const ESPAI_MAXIM_PANTALLA = 12;
 
-//PRE: window.string_nombre té carregat un nombre com a cadena (pot ser positiu, negatiu o zero)
-//POST: el nombre com a cadena, pero amb el signe canviat (a excepció del zero, que no té signe).
+//PRE: window.string_nombre té carregat un nombre com a cadena (pot ser positiu, negatiu o zero).
+//POST: el nombre com a cadena, pero amb el signe canviat (a excepció del zero, que no té signe), ara ocupa window.string_nombre
 function canviaSigne() {
     let esPositiu = window.string_nombre.indexOf("-") == -1 && window.string_nombre != 0;
     let esNegatiu = window.string_nombre.indexOf("-") != -1;
@@ -20,11 +20,9 @@ function canviaSigne() {
     else if (esNegatiu) {
         window.string_nombre = window.string_nombre.slice(1); //trec el signe negatiu de l'string
     }
-    
     if (window.string_nombre.length > 0) {//cal excloure el cas de windows.tring_nombre.length == 0 o peta quan reinicialitzes
         document.getElementById('pantalleta').innerHTML = window.string_nombre;
     }
-    
 }
 
 
